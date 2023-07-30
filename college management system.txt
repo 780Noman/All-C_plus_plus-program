@@ -1,0 +1,440 @@
+// College Management System Complete Project in C++.
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int i=0;
+struct student
+{
+	string roll,name,clas,group;
+	float tot,obt,per;
+}s[10];
+void control_panel()
+{
+	cout<<"\n\n\n\t\t\t\tControl Panel";
+	cout<<"\n\n 1. Insert Record";
+	cout<<"\n 2. Display Record";
+	cout<<"\n 3. Search Record";
+	cout<<"\n 4. Update Record";
+	cout<<"\n 5. Delete Record";
+	cout<<"\n 6. No. of Students";
+	cout<<"\n 7. College Status";
+	cout<<"\n 8. Exit";
+	cout<<"\n\n Enter Your Choice : ";
+}
+void insert(student s[])
+{
+	system("cls");
+	cout<<"\n\n\t\t\t\tInsert Record";
+	cout<<"\n\n Roll No. : ";
+	cin>>s[i].roll;
+	cout<<"\n\t\t\tName : ";
+	cin>>s[i].name;
+	cout<<"\n Class : ";
+	cin>>s[i].clas;
+	cout<<"\n\t\t\tGroup : ";
+	cin>>s[i].group;
+	cout<<"\n Total Marks : ";
+	cin>>s[i].tot;
+	cout<<"\n\t\t\tObtained Marks : ";
+	cin>>s[i].obt;
+	s[i].per = (s[i].obt / s[i].tot) * 100;
+}
+void display(student s[])
+{
+	int c=1;
+	system("cls");
+	cout<<"\n\n\t\t\t\tDisplay Record";
+	if(i > 0)
+	{
+	for(int a=0;a<i;a++)
+	{
+		cout<<"\n\n\n Student "<<c;
+		cout<<"\n\n Roll No. : "<<s[a].roll;
+		cout<<"\n\t\t\t Name : "<<s[a].name;
+		cout<<"\n Class : "<<s[a].clas;
+		cout<<"\n\t\t\t Group : "<<s[a].group;
+		cout<<"\n Total Marks : "<<s[a].tot;
+		cout<<"\n\t\t\t Obtained Marks : "<<s[a].obt;
+		cout<<"\n Percentage % : "<<s[a].per;
+		c++;
+	}
+    }
+    else
+    {
+    	cout<<"\n\n Data Base is Empty...";
+    }
+}
+void search(student s[])
+{
+	int count=0;
+	string roll;
+	system("cls");
+	cout<<"\n\n\t\t\t\tSearch Record";
+	if(i > 0)
+	{
+		cout<<"\n\n Roll No. For Search : ";
+		cin>>roll;
+		for(int a=0;a<i;a++)
+		{
+			if(roll == s[a].roll)
+			{
+		        cout<<"\n\n Roll No. : "<<s[a].roll;
+		        cout<<"\n\t\t\t Name : "<<s[a].name;
+		        cout<<"\n Class : "<<s[a].clas;
+		        cout<<"\n\t\t\t Group : "<<s[a].group;
+		        cout<<"\n Total Marks : "<<s[a].tot;
+		        cout<<"\n\t\t\t Obtained Marks : "<<s[a].obt;
+		        cout<<"\n Percentage % : "<<s[a].per;
+		        count++;
+			}
+		}
+		if(count == 0)
+		{
+			cout<<"\n\n Record Not Found...";
+		}
+	}
+	else
+	{
+		cout<<"\n\n Data Base is Empty...";
+	}
+}
+void update(student s[])
+{
+	system("cls");
+	string roll;
+	int count=0;
+	cout<<"\n\n\t\t\t\tUpdate Record";
+	if(i > 0)
+	{
+	   cout<<"\n\n Roll No. For Update : ";
+	   cin>>roll;
+	   for(int a=0;a<i;a++)
+	   {
+	   		if(roll == s[a].roll)
+			   {
+			   		cout<<"\n\n New Roll No. : ";
+					cin>>s[a].roll;
+					cout<<"\n\t\t\tName : ";
+					cin>>s[a].name;
+					cout<<"\n Class : ";
+					cin>>s[a].clas;
+					cout<<"\n\t\t\tGroup : ";
+					cin>>s[a].group;
+					cout<<"\n Total Marks : ";
+					cin>>s[a].tot;
+					cout<<"\n\t\t\tObtained Marks : ";
+					cin>>s[a].obt;
+					s[i].per = (s[i].obt / s[i].tot) * 100;
+					count++;
+			   }	
+	   }
+	   if(count == 0)
+	   {
+	   	 cout<<"\n\n Record Not Found...";
+	   }	
+	}
+	else
+	{
+		cout<<"\n\n Data Base is Empty...";
+	}
+}
+void del(student s[])
+{
+	system("cls");
+	string roll,t_roll,t_name,t_class,t_group;
+	float t_tot,t_obt,t_per;
+	int count=0;
+	cout<<"\n\n\t\t\t\tDelete Record";
+	if(i > 0)
+	{
+		cout<<"\n\n Roll No. For Delete : ";
+		cin>>roll;
+		for(int a=0;a<i;a++)
+		{
+			if(roll == s[a].roll)
+			{
+				for(int j=a;j<i;j++)
+				{
+					t_roll = s[j+1].roll;
+					t_name = s[j+1].name;
+					t_class = s[j+1].clas;
+					t_group = s[j+1].group;
+					t_tot = s[j+1].tot;
+					t_obt = s[j+1].obt;
+					t_per = s[j+1].per;
+					s[j].roll = t_roll;
+					s[j].name = t_name;
+					s[j].clas = t_class;
+					s[j].group = t_group;
+					s[j].tot = t_tot;
+					s[j].obt = t_obt;
+					s[j].per = t_per;
+				}
+				cout<<"\n\n Record is Deleted...";
+				i--;
+				count++;	
+			}
+		}
+		if(count == 0)
+		{
+			cout<<"\n\n Record Not Found...";
+		}
+	}
+	else
+	{
+		cout<<"\n\n Data Base is Empty...";
+	}
+}
+void first_year(student s[])
+{
+	p:
+	int choice,count=0;
+	system("cls");
+	cout<<"\n\n 1. FSC(P_M)";
+	cout<<"\n 2. FSC(P_E)";
+	cout<<"\n 3. ICS";
+	cout<<"\n 4. I.COM";
+	cout<<"\n 5. F.A";
+	cout<<"\n 6. Total Fisrt Year Students";
+	cout<<"\n\n Your Choice : ";
+	cin>>choice;
+	switch(choice)
+	{
+		case 1:
+			system("cls");
+			cout<<"\n\n\t\t\t\tFSC Pre Medical";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "1st_Year" && s[a].group == "FSC(P_M)")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 2:
+			system("cls");
+			cout<<"\n\n\t\t\t\tFSC Pre Engineering";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "1st_Year" && s[a].group == "FSC(P_E)")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 3:
+			system("cls");
+			cout<<"\n\n\t\t\t\tICS";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "1st_Year" && s[a].group == "ICS")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 4:
+			system("cls");
+			cout<<"\n\n\t\t\t\tI.COM";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "1st_Year" && s[a].group == "I.COM")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 5:
+			system("cls");
+			cout<<"\n\n\t\t\t\tF.A";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "1st_Year" && s[a].group == "F.A")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 6:
+			system("cls");
+			cout<<"\n\n\t\t\t\t1st Year";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "1st_Year")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		default:
+			cout<<"\n\n Invalid Value...Please Try Again...";
+			getch();
+			goto p;
+			
+	}
+}
+void second_year(student s[])
+{
+	p:
+	int choice,count=0;
+	system("cls");
+	cout<<"\n\n 1. FSC(P_M)";
+	cout<<"\n 2. FSC(P_E)";
+	cout<<"\n 3. ICS";
+	cout<<"\n 4. I.COM";
+	cout<<"\n 5. F.A";
+	cout<<"\n 6. Total Second Year Students";
+	cout<<"\n\n Your Choice : ";
+	cin>>choice;
+	switch(choice)
+	{
+		case 1:
+			system("cls");
+			cout<<"\n\n\t\t\t\tFSC Pre Medical";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "2nd_Year" && s[a].group == "FSC(P_M)")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 2:
+			system("cls");
+			cout<<"\n\n\t\t\t\tFSC Pre Engineering";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "2nd_Year" && s[a].group == "FSC(P_E)")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 3:
+			system("cls");
+			cout<<"\n\n\t\t\t\tICS";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "2nd_Year" && s[a].group == "ICS")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 4:
+			system("cls");
+			cout<<"\n\n\t\t\t\tI.COM";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "2nd_Year" && s[a].group == "I.COM")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 5:
+			system("cls");
+			cout<<"\n\n\t\t\t\tF.A";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "2nd_Year" && s[a].group == "F.A")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		case 6:
+			system("cls");
+			cout<<"\n\n\t\t\t\t2nd Year Students";
+			for(int a=0;a<i;a++)
+			if(s[a].clas == "2nd_Year")
+			count++;
+			cout<<"\n\n No. of Students : "<<count;
+			break;
+		default:
+			cout<<"\n\n Invalid Value...Please Try Again...";
+			getch();
+			goto p;
+			
+	}
+}
+void total_stu(student s[])
+{
+	int count=0;
+	system("cls");
+	cout<<"\n\n\t\t\t\tTotal Student 1st Year & 2nd Year";
+	for(int a=0;a<i;a++)
+	count++;
+	cout<<"\n\n No. of Students : "<<count;
+}
+void no_stu(student s[])
+{
+	p:
+	int choice;
+	system("cls");
+	cout<<"\n\n\t\t\t\t No. of Students";
+	cout<<"\n\n 1. 1st Year Students";
+	cout<<"\n 2. Second Year Students";
+	cout<<"\n 3. Total Students";
+	cout<<"\n\n Your Choice : ";
+	cin>>choice;
+	switch(choice)
+	{
+		case 1:
+			first_year(s);
+			break;
+		case 2:
+			second_year(s);
+			break;
+		case 3:
+			total_stu(s);
+			break;
+		default:
+			cout<<"\n\n Invalid Value...Please Try Again...";
+			getch();
+			goto p;
+	}
+}
+void college_status(student s[])
+{
+	int first=0,first_tot=0,second=0,second_tot=0,total=0;
+	system("cls");
+	cout<<"\n\n\t\t\t\t College Overall Status";
+	for(int a=0;a<i;a++)
+	{
+		if(s[a].clas == "1st_Year")
+		{
+			if(s[a].per >= 33)
+			first++;
+			first_tot++;
+		}
+		else if(s[a].clas == "2nd_Year")
+		{
+			if(s[a].per >= 33)
+			second++;
+			second_tot++;
+		}
+		total++;
+	}
+	cout<<"\n\n 1st Year Students : "<<first_tot;
+	cout<<"\n\n\t\t\t1st Year Pass Students : "<<first;
+	cout<<"\n\n 1st Year Fail Students : "<<first_tot-first;
+	cout<<"\n\n\n 2nd Year Students : "<<second_tot;
+	cout<<"\n\n\t\t\t2nd Year Pass Students : "<<second;
+	cout<<"\n\n 2nd Year Fail Students : "<<second_tot-second;
+	cout<<"\n\n\n Total Students : "<<total;
+	cout<<"\n\n\t\t\tPass Students : "<<first+second;
+	cout<<"\n\n Fail Students : "<<total-(first+second);
+}
+main()
+{
+	int choice;
+	char x;
+	p:
+	system("cls");
+	control_panel();
+	cin>>choice;
+	switch(choice)
+	{
+		case 1:
+			do
+			{
+			insert(s);
+			i++;
+			cout<<"\n\n Do You Want To Add Another Record (y,n) : ";
+			cin>>x;
+		    }while(x == 'y');
+			break;
+		case 2:
+			display(s);
+			break;
+		case 3:
+			search(s);
+			break;
+		case 4:
+			update(s);
+			break;
+		case 5:
+			del(s);
+			break;
+		case 6:
+			no_stu(s);
+			break;
+		case 7:
+			college_status(s);
+			break;
+		case 8:
+			exit(0);
+		default:
+			cout<<"\n\n Invalid Value...Please Try Again...";
+	}
+	getch();
+	goto p;
+}
