@@ -41,7 +41,7 @@ I have write some code of Problem you can see it and Modify it if you have good 
 To get started with this repository and explore the C++ programs and exercises, follow these steps:
 
 1. Clone the repository to your local machine using the following command:
- git clone https://github.com/780Noman/All-C-program
+ git clone https://github.com/780Noman/All-C-program/tree/main
 
 2. Navigate to the 'programs' and 'exercises' directories to access the C++ programs and exercises, respectively.
 
