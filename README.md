@@ -1,7 +1,7 @@
 # All-C-program
 # C++ Programs and Exercises
 
-![C++ Logo](c_plus_plus_logo.png) (Replace 'c_plus_plus_logo.png' with the path to your C++ logo image, if you have one)
+
 
 Welcome to the C++ Programs and Exercises repository! Here, you'll find a collection of C++ programs covering various basic concepts and problem-solving exercises to strengthen your C++ skills.
 
